@@ -1,14 +1,5 @@
 #include "monty.h"
-int count_tokens(char *buffer)
-{
-    int count = 0;
-    for (int i = 0; buffer[i] != '\0'; i++)
-    {
-        if (buffer[i] == ' ')
-            count++;
-    }
-    return count + 1;
-}
+int count_tokens(char *buffer);
 /**
  * main - entry point
  * @argc: number of arguments
@@ -45,7 +36,7 @@ int main(int argc, char *argv[])
 		{
 			execute(token_arr, &stack, line_num);
 		}
-		free_arr(token_arr);	
+		free_arr(token_arr);
 	}
 	free(buffer);
 	free_stack(&stack);

@@ -18,9 +18,9 @@
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 /**
  * struct instruction_s - opcode and its function
@@ -32,15 +32,17 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 FILE *f_stream(char *argv[]);
 char **tokenizer(char *buffer, char **token_arr);
 void free_arr(char **token_arr);
 void args_checker(int argc);
 int check_num(char *opcode);
-void get_istruction(char *opcode, stack_t **cp_stack, unsigned int line_number);
+void get_istruction(char *opcode,
+		stack_t **cp_stack,
+		unsigned int line_number);
 void execute(char **token_arr, stack_t **stack, unsigned int line_number);
 void s_push(char *opcode, stack_t **stack, unsigned int line_number);
 void s_pall(stack_t **sstack, unsigned int __attribute__((unused)) line);

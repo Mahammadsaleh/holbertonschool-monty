@@ -54,7 +54,7 @@ void execute(char **token_arr, stack_t **stack, unsigned int line_number)
 		{
 			get_istruction(token_arr[0], stack, line_number);
 		}
-	}	
+	}
 }
 
 /**
