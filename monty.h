@@ -44,6 +44,7 @@ void get_istruction(char *opcode, stack_t **cp_stack, unsigned int line_number);
 void execute(char **token_arr, stack_t **stack, unsigned int line_number);
 void s_push(char *opcode, stack_t **stack, unsigned int line_number);
 void s_pall(stack_t **sstack, unsigned int __attribute__((unused)) line);
+void free_stack(stack_t **stack);
 void s_pint(stack_t **stack, unsigned int line);
 void s_pop(stack_t **stack, unsigned int line);
 void s_nop(stack_t **stack, unsigned int line);

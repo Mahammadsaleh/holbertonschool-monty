@@ -26,6 +26,7 @@ int main(int argc, char *argv[])
 	   
 	}
 	free(buffer);
+	free_stack(&stack);
 	fclose(file_stream);
 	return 0;
 }

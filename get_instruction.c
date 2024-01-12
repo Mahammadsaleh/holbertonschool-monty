@@ -38,3 +38,16 @@ void execute(char **token_arr, stack_t **stack, unsigned int line_number)
 		get_istruction(token_arr[0], stack, line_number);
 	}
 }
+void free_stack(stack_t **stack)
+{
+    stack_t *current_node;
+    stack_t *next_node;
+
+    current_node = *stack;
+    while (current_node != NULL)
+    {
+        next_node = current_node->next;
+        free(current_node);
+        current_node = next_node;
+    }
+}
