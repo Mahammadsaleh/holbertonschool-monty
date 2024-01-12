@@ -3,8 +3,8 @@
 /**
  * s_push - adds a new node at the beginning of a stack_t list.
  * @opcode: opcode
- * @top_stack: top of the stack
- * @line: line number
+ * @stack: top of the stack
+ * @line_number: line number
  * Return: void
  */
 void s_push(char *opcode, stack_t **stack, unsigned int line_number)
