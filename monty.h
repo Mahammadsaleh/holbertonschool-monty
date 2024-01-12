@@ -1,6 +1,12 @@
 #ifndef MYHEADER
 #define MYHEADER
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <stddef.h>
+#include <ctype.h>
+#include <limits.h>
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -31,5 +37,10 @@ typedef struct instruction_s
 } instruction_t;
 FILE *f_stream(char *argv[]);
 char **tokenizer(char *buffer, char **token_arr);
+void free_arr(char **token_arr);
 void args_checker(int argc);
+int check_num(char *opcode);
+void get_istruction(char *opcode, stack_t **cp_stack, unsigned int line_number);
+void execute(char **token_arr, stack_t **stack, unsigned int line_number);
+void s_push(char *opcode, stack_t **stack, unsigned int line_number);
 #endif

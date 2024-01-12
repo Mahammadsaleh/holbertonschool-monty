@@ -2,15 +2,15 @@
 #include <stdlib.h>
 #include <string.h>
 #include "monty.h"
-
 int main(int argc, char *argv[])
 {
 	FILE *file_stream = NULL;
 	char **token_arr = NULL;
+	stack_t *stack = NULL;
 	int line_num = 0;
 	size_t len = 0;
 	int read;
-	char *buffer = malloc(128);
+	char *buffer = NULL;
 
 	args_checker(argc);
 	file_stream = f_stream(argv);
@@ -18,27 +18,14 @@ int main(int argc, char *argv[])
 	{
 		if (buffer[read - 1] == '\n')
 			buffer[read - 1] = '\0';
-		token_arr = malloc(sizeof(char*) * 1024);
+		token_arr = malloc(sizeof(char*) * 32);
 		tokenizer(buffer, token_arr);
 		line_num++;
-		if (token_arr != NULL)
-		{
-			for (int i = 0; token_arr[i] != NULL; i++)
-			{
-				printf("%s\n", token_arr[i]);
-			}
-		}
-		if (token_arr != NULL)
-		{
-			for (int i = 0; token_arr[i] != NULL; i++)
-			{
-				free(token_arr[i]);
-			}
-			free(token_arr);
-		}
+		execute(token_arr);
+		free_arr(token_arr);
+	   
 	}
 	free(buffer);
-	free(token_arr);
 	fclose(file_stream);
 	return 0;
 }

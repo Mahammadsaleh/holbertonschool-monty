@@ -19,8 +19,8 @@ char **tokenizer(char *buffer, char **token_arr)
     token = strtok(buffer, delims);
     while (token != NULL)
     {
-        token_arr[i] = malloc(strlen(token) + 1); // Allocate memory for the token
-        strcpy(token_arr[i], token); // Copy the token into the newly allocated memory
+        token_arr[i] = malloc(strlen(token) + 1);
+        strcpy(token_arr[i], token);
         i++;
         token = strtok(NULL, delims);
     }
@@ -44,4 +44,15 @@ FILE *f_stream(char *argv[])
 		exit(EXIT_FAILURE);
 	}
 	return (file_stream);
+}
+void free_arr(char **token_arr)
+{
+	if (token_arr != NULL)
+	{
+		for (int i = 0; token_arr[i] != NULL; i++)
+		{
+			free(token_arr[i]);
+		}
+		free(token_arr);
+	}
 }
