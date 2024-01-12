@@ -7,7 +7,7 @@ int main(int argc, char *argv[])
 	FILE *file_stream = NULL;
 	char **token_arr = NULL;
 	stack_t *stack = NULL;
-	int line_num = 0;
+	unsigned int line_num = 0;
 	size_t len = 0;
 	int read;
 	char *buffer = NULL;
@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 		token_arr = malloc(sizeof(char*) * 32);
 		tokenizer(buffer, token_arr);
 		line_num++;
-		execute(token_arr);
+		execute(token_arr, &stack, line_num);
 		free_arr(token_arr);
 	   
 	}

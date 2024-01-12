@@ -1,4 +1,4 @@
-#include <monty.h>
+#include "monty.h"
 int check_num(char *opcode)
 {
 	unsigned int idx = 0;
