@@ -1,10 +1,10 @@
 #include "monty.h"
 /**
- * _pint - prints top of stack
+ * s_pint - prints top of stack
  * @stack: input stack
  * @line: number of line
  */
-void _pint(stack_t **stack, unsigned int line)
+void s_pint(stack_t **stack, unsigned int line)
 {
 	if (stack && *stack)
 	{
