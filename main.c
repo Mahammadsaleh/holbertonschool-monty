@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
 	char **token_arr = NULL;
 	stack_t *stack = NULL;
 	unsigned int line_num = 0;
-	size_t len = 1;
+	size_t len = 0;
 	int read, token_count;
 	char *buffer = NULL;
 
@@ -31,15 +31,15 @@ int main(int argc, char *argv[])
 	while ((read = getline(&buffer, &len, file_stream)) != -1)
 	{
 		if (buffer[read - 1] == '\n')
-			buffer[read - 1] = '\0';
+		i	buffer[read - 1] = '\0';
 		if (buffer[0] == '\0' || isspace(buffer[0]))
 			continue;
+		++line_num;
 		token_count = count_tokens(buffer);
 		token_arr = malloc(sizeof(char *) * (token_count + 1));
 		tokenizer(buffer, token_arr);
 		if (token_arr[0] != NULL)
 		{
-			line_num++;
 			execute(token_arr, &stack, line_num);
 		}
 		free_arr(token_arr);	
