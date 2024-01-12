@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
 	{
 		if (buffer[read - 1] == '\n')
 			buffer[read - 1] = '\0';
-		token_arr = malloc(sizeof(char *) * 32);
+		token_arr = malloc(sizeof(char *) * 128);
 		tokenizer(buffer, token_arr);
 		line_num++;
 		execute(token_arr, &stack, line_num);
