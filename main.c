@@ -32,17 +32,15 @@ int main(int argc, char *argv[])
 	{
 		if (buffer[read - 1] == '\n')
 			buffer[read - 1] = '\0';
+		line_num++;
 		if (buffer[0] == '\0' || isspace(buffer[0]))
-			continue;
-		token_count = count_tokens(buffer);
-		token_arr = malloc(sizeof(char *) * (token_count + 1));
-		tokenizer(buffer, token_arr);
-		if (token_arr[0] != NULL)
 		{
-			line_num++;
-			execute(token_arr, &stack, line_num);
-		}
-		free_arr(token_arr);
+			token_arr = malloc(sizeof(char*) * (count_tokens(buffer) + 1));
+			tokenizer(buffer, token_arr);
+			if (token_arr[0] != NULL)
+				execute(token_arr, &stack, line_num);
+			free_arr(token_arr);
+		}	
 	}
 	free(buffer);
 	free_stack(&stack);
