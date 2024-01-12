@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
 	while ((read = getline(&buffer, &len, file_stream)) != -1)
 	{
 		if (buffer[read - 1] == '\n')
-		i	buffer[read - 1] = '\0';
+			buffer[read - 1] = '\0';
 		if (buffer[0] == '\0' || isspace(buffer[0]))
 			continue;
 		++line_num;
