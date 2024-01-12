@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
 	{
 		if (buffer[read - 1] == '\n')
 			buffer[read - 1] = '\0';
-		if (buffer[0] == '\0' || isspace(buffer[0]))
+		if (buffer[0] == '\0')
 		{
 			++line_num;
 			continue;
