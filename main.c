@@ -37,9 +37,11 @@ int main(int argc, char *argv[])
 		token_count = count_tokens(buffer);
 		token_arr = malloc(sizeof(char *) * (token_count + 1));
 		tokenizer(buffer, token_arr);
-		line_num++;
 		if (token_arr[0] != NULL)
+		{
+			line_num++;
 			execute(token_arr, &stack, line_num);
+		}
 		free_arr(token_arr);
 	}
 	free(buffer);
