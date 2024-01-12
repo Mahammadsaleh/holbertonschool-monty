@@ -12,18 +12,20 @@
  */
 char **tokenizer(char *buffer, char **token_arr)
 {
-	char *token;
-	char *delims = " \n\t";
-	int i = 0;
+    char *token;
+    char *delims = " \n\t";
+    int i = 0;
 
-	token = strtok(buffer, delims);
-	while (token != NULL)
-	{
-		token_arr[i++] = token;
-		token = strtok(NULL, delims);
-	}
-	token_arr[i++] = NULL;
-	return (token_arr);
+    token = strtok(buffer, delims);
+    while (token != NULL)
+    {
+        token_arr[i] = malloc(strlen(token) + 1); // Allocate memory for the token
+        strcpy(token_arr[i], token); // Copy the token into the newly allocated memory
+        i++;
+        token = strtok(NULL, delims);
+    }
+    token_arr[i] = NULL;
+    return (token_arr);
 }
 /**
  * f_stream - file stream
