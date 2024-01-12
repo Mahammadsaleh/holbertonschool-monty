@@ -38,15 +38,25 @@ void get_istruction(char *opcode, stack_t **stack, unsigned int line_number)
 */
 void execute(char **token_arr, stack_t **stack, unsigned int line_number)
 {
-	if (strcmp(token_arr[0], "push") == 0)
+	if (token_arr[0] != NULL)
 	{
-		s_push(token_arr[1], stack, line_number);
-	}
-	else
-	{
-		get_istruction(token_arr[0], stack, line_number);
-	}
+		if (strcmp(token_arr[0], "push") == 0)
+		{
+			if (token_arr[1] != NULL)
+				s_push(token_arr[1], stack, line_number);
+			else
+			{
+				fprintf(stderr, "L%u: usage: push integer\n", line_number);
+				exit(EXIT_FAILURE);
+			}
+		}
+		else
+		{
+			get_istruction(token_arr[0], stack, line_number);
+		}
+	}	
 }
+
 /**
  * free_stack - free a stack
  * @stack: head of the stack
