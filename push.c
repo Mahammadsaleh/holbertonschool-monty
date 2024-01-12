@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * _push - adds a new node at the beginning of a stack_t list.
+ * s_push - adds a new node at the beginning of a stack_t list.
  * @opcode: opcode
  * @top_stack: top of the stack
  * @line: line number

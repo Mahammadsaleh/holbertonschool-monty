@@ -12,20 +12,20 @@
  */
 char **tokenizer(char *buffer, char **token_arr)
 {
-    char *token;
-    char *delims = " \n\t";
-    int i = 0;
+	char *token;
+	char *delims = " \n\t";
+	int i = 0;
 
-    token = strtok(buffer, delims);
-    while (token != NULL)
-    {
-        token_arr[i] = malloc(strlen(token) + 1);
-        strcpy(token_arr[i], token);
-        i++;
-        token = strtok(NULL, delims);
-    }
-    token_arr[i] = NULL;
-    return (token_arr);
+	token = strtok(buffer, delims);
+	while (token != NULL)
+	{
+		token_arr[i] = malloc(strlen(token) + 1);
+		strcpy(token_arr[i], token);
+		i++;
+		token = strtok(NULL, delims);
+	}
+	token_arr[i] = NULL;
+	return (token_arr);
 }
 /**
  * f_stream - file stream
@@ -37,7 +37,7 @@ FILE *f_stream(char *argv[])
 {
 	FILE *file_stream = NULL;
 
-	file_stream = fopen(argv[1],"r");
+	file_stream = fopen(argv[1], "r");
 	if (file_stream == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
@@ -45,6 +45,12 @@ FILE *f_stream(char *argv[])
 	}
 	return (file_stream);
 }
+/**
+ * free_arr - free array
+ * @token_arr: arguments
+ *
+ * Return: void
+ */
 void free_arr(char **token_arr)
 {
 	if (token_arr != NULL)
