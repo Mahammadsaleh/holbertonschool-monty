@@ -13,6 +13,7 @@ void get_istruction(char *opcode, stack_t **stack, unsigned int line_number)
 	instruction_t function[] = {
 		{"pall", s_pall},
 		{"pint", s_pint},
+		{"pop", s_pop},
 		{NULL, NULL}
 	};
 	while (function[i].opcode)
