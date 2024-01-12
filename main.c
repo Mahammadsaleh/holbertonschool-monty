@@ -33,7 +33,10 @@ int main(int argc, char *argv[])
 		if (buffer[read - 1] == '\n')
 			buffer[read - 1] = '\0';
 		if (buffer[0] == '\0' || isspace(buffer[0]))
+		{
+			++line_num;
 			continue;
+		}
 		++line_num;
 		token_count = count_tokens(buffer);
 		token_arr = malloc(sizeof(char *) * (token_count + 1));
