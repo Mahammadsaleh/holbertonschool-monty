@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 	stack_t *stack = NULL;
 	unsigned int line_num = 0;
 	size_t len = 1;
-	int read;
+	int read, token_count;
 	char *buffer = NULL;
 
 	args_checker(argc);
