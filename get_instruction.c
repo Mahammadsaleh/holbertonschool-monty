@@ -15,6 +15,7 @@ void get_istruction(char *opcode, stack_t **stack, unsigned int line_number)
 		{"pint", s_pint},
 		{"pop", s_pop},
 		{"swap", s_swap},
+		{"add", s_add},
 		{"nop", s_nop},
 		{NULL, NULL}
 	};
