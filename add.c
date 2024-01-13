@@ -11,7 +11,10 @@ void s_add(stack_t **stack, unsigned int line_number)
 	int sum;
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
-		more_err(8, line_number, "add");
+	{
+	dprintf(STDERR_FILENO, "L%i: can't swap, stack too short\n", line_number);
+	exit(EXIT_FAILURE);
+	}
 
 	(*stack) = (*stack)->next;
 	sum = (*stack)->n + (*stack)->prev->n;
