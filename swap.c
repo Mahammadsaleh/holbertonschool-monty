@@ -15,6 +15,7 @@ void s_swap(stack_t **stack, unsigned int line_number)
 		dprintf(STDERR_FILENO, "L%i: can't swap, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
+
 	tmp = (*stack)->next;
 	(*stack)->next = tmp->next;
 	if (tmp->next != NULL)
