@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * s_nodes - Adds the top two elements of the stack.
+ * s_add - Adds the top two elements of the stack.
  * @stack: Pointer to a pointer pointing to top node of the stack.
  * @line_number: Interger representing the line number of of the opcode.
  */
